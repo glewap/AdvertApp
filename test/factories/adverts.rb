@@ -3,6 +3,10 @@ FactoryGirl.define do
     title 'Schwalbe Lugano'
     description 'Schwalbe Lugano 700x28c'
     price 49.99
-    active false
+
+    factory :active_ad do
+      title 'Schwalbe Durano'
+      active true
+    end 
   end
 end
