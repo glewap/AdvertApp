@@ -6,4 +6,6 @@ class Category < ApplicationRecord
   has_many :adverts, through: :advert_categories
 
   acts_as_tree :order => "name"
+
+  validates :name, presence: true
 end
