@@ -1,4 +1,7 @@
 class Advert < ApplicationRecord
+  has_many :advert_categories
+  has_many :categories, through: :advert_categories
+
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
 
