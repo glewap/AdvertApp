@@ -1,11 +1,12 @@
 require 'test_helper'
+# include Devise::Test::ControllerHelpers
 
 class HomeControllerTest < ActionDispatch::IntegrationTest
+  def sign_in(new_user)
+    post user_session_path(params: {'user[email]' => new_user.email, 'user[password]' => new_user.password})
+  end
 
-  # def login_user
 
-  # end
-  
   test "#index should return 200" do
     get home_index_path
     assert_response :success
@@ -43,7 +44,12 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
       assert_select 'h3.price', text: "#{ad.price}"
       assert_select 'div.description', text: "#{ad.description}"
     end
-
   end
+
+  # test "#new should return 200" do
+  #   user = FactoryGirl.create(:user)
+  #   sign_in(user)
+  #   get new_home_path
+  # end
 
 end
