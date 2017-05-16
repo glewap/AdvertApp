@@ -1,11 +1,11 @@
-class HomeController < ApplicationController
+class AdvertsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @adverts = Advert.active.all
+    @adverts = Advert.all
   end
 
   def show
-    @advert = Advert.active.find(params[:id])
+    @advert = Advert.find(params[:id])
   end
 
   def new
@@ -16,7 +16,7 @@ class HomeController < ApplicationController
     @advert = current_user.adverts.new(strong_params)
     if @advert.save
       flash[:notice] = "Dodano nowe ogłoszenie"
-      redirect_to home_index_path
+      redirect_to adverts_path
     else
       flash[:error] = "Nie udało się dodać ogłoszenia"
       render :new

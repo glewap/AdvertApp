@@ -6,9 +6,9 @@ Rails.application.routes.draw do
 
   # get 'home/show'
 
-  root 'home#index' 
+  root 'adverts#index' 
 
-  resources :home, only: [:index, :show, :new, :create]
+  resources :adverts, only: [:index, :show, :new, :create]
 
 
 end
