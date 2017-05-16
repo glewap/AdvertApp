@@ -1,0 +1,7 @@
+<h1>Nowe ogłoszenia</h1>
+<%= @adverts.each do |ad| %>
+  <div class='advert'>
+    <h3><%= ad.title %></h3>
+    <p><%= ad.price %></p>
+  </div>
+<% end %>
