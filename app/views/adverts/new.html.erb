@@ -1,3 +1,29 @@
 <%= flash[:error] if flash[:error] %>
 <h2>Nowe ogłoszenie</h2>
-<%= render partial: 'form', locals: { advert: @advert } %>
+<%= form_for(@advert) do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :price %>
+  <%= f.number_field(:price, step: 0.01) %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <% parent_category = @advert_cat %>
+  <% unless Category.find_by(parent_id: parent_category.id) == nil %>
+    <% categ_to_select = Category.where(parent_id: parent_category.id) %>
+    <% tab = [] %>
+    <% categ_to_select.each do |cat| %>
+      <% tab << [cat.name, cat.id] %>
+    <% end %>
+    <%= f.select(:category) do %>
+      <% tab.each do |c| %>
+        <%= content_tag(:option, c.first, value: c.last) %>
+      <% end %>
+    <% end %>  
+  <% end %>
+
+  <%= f.submit "Zapisz" %>
+<% end %>
