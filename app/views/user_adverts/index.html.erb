@@ -1,0 +1,9 @@
+<%= flash[:notice] if flash[:notice] %>
+<h1>Moje ogłoszenia</h1>
+<h3><%= link_to "Dodaj nowe ogłoszenie", new_user_advert_path %></h3>
+<% @adverts.each do |ad| %>
+  <div class="advert">
+    <h2><%= link_to "#{ad.title}", user_advert_path(ad.id) %></h2>
+    <p><%= ad.price %></p>
+  </div>
+<% end %>

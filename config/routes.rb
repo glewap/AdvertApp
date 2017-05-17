@@ -10,5 +10,7 @@ Rails.application.routes.draw do
 
   resources :adverts, only: [:index, :show, :new, :create]
 
+  resources :user_adverts
+
 
 end

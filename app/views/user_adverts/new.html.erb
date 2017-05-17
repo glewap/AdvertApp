@@ -1,0 +1,3 @@
+<%= flash[:error] if flash[:error] %>
+<h2>Nowe ogłoszenie</h2>
+<%= render partial: 'form', locals: { advert: @advert } %>
