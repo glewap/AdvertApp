@@ -1,7 +1,0 @@
-<%= flash[:notice] if flash[:notice] %>
-<div>
-  <h2><%= @advert.title %></h2>
-  <div><%= link_to 'Edytuj', edit_user_advert_path(@advert.id) %> | <%= link_to 'Usuń', user_advert_path(@advert.id), method: :delete, data: { confirm: "Na pewno usunąć?" } %></div>
-  <p><%= @advert.price %></p>
-  <div><%= @advert.description %></div>
-</div>

@@ -1,5 +1,7 @@
-<div class="advert">
-  <h1 class="title"><%= @advert.title %></h1>
-  <h3 class="price"><%= @advert.price %></h3>
-  <div class="description"><%= @advert.description %></div>
+<%= flash[:notice] if flash[:notice] %>
+<div>
+  <h2><%= @advert.title %></h2>
+  <div><%= link_to 'Edytuj', edit_advert_path(@advert.id) %> | <%= link_to 'Usuń', advert_path(@advert.id), method: :delete, data: { confirm: "Na pewno usunąć?" } %></div>
+  <p><%= @advert.price %></p>
+  <div><%= @advert.description %></div>
 </div>

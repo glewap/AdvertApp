@@ -1,4 +1,6 @@
-<%= form_for(advert) do |f| %>
+<%= flash[:error] if flash[:error] %>
+
+<%= form_for @advert do |f| %>
 
   <%= f.label :title %>
   <%= f.text_field :title %>
@@ -7,11 +9,10 @@
   <%= f.number_field(:price, step: 0.01) %>
 
   <%= f.label :description %>
-  <%= f.text_field :description %>
+  <%= f.text_area(:description, size: "24x6") %>
 
   <br />
 
-  <%= f.submit "Zapisz" %>
+  <%= f.submit "Dodaj ogłoszenie" %>
 
 <% end %>
-
